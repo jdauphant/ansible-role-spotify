@@ -1,0 +1,9 @@
+---
+ - name: Add spotify key
+   apt_key: id=94558F59 keyserver="hkp://keyserver.ubuntu.com:80" state=present
+
+ - name: Add spotify repository
+   apt_repository: repo="deb http://repository.spotify.com stable non-free"
+
+ - name: Ensure spotify is installed
+   apt: pkg=spotify-client  state={{spotify_pkg_state}}
